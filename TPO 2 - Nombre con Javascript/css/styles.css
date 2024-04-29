@@ -1,0 +1,25 @@
+/* @authors: Carlos (Charly), Flores | Leonel, Sánchez Usma | Marcelo Ruben Anton | Ignacio Moyano */
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+input[type="text"] {
+    padding: 10px;
+    margin: 10px;
+    font-size: 16px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
