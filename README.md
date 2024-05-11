@@ -20,13 +20,7 @@ Estas practicas se realizaron por el Grupo 14 del curso de FullStack con NodeJS 
     
 ## Installation
 
-- Estos no necesitan instalación, basta con tener alguno de los siguientes navegadores
-    - Brave: !<img src="(image-1.png)" alt="Brave" width="30"/>,
-    - Firefox: !<img src="(https://upload.wikimedia.org/wikipedia/commons/archive/1/1e/20200204084524%21Brave_icon_app.png)" alt="Brave" width="30"/>,
-    - Edge: !<img src="(https://upload.wikimedia.org/wikipedia/commons/archive/1/1e/20200204084524%21Brave_icon_app.png)" alt="Brave" width="30"/>,
-    - Opera: !<img src="(https://upload.wikimedia.org/wikipedia/commons/archive/1/1e/20200204084524%21Brave_icon_app.png)" alt="Brave" width="30"/>,
-    - Safari: !<img src="(https://upload.wikimedia.org/wikipedia/commons/archive/1/1e/20200204084524%21Brave_icon_app.png)" alt="Brave" width="30"/>,
-    - Chrome: !<img src="(https://upload.wikimedia.org/wikipedia/commons/archive/1/1e/20200204084524%21Brave_icon_app.png)" alt="Brave" width="30"/>
+- Estos no necesitan instalación, basta con tener algun navegador web
 
 ## Usage
 
