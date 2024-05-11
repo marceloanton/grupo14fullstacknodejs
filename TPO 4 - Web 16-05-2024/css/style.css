@@ -1,0 +1,132 @@
+:root {
+    --background-color: #272727;
+    --background-color2: #dddddd;
+    --border-color: #747474;
+
+    --info-counter: #6fe600;
+    --error-color: rgb(209, 0, 0);
+
+    --white: #fff;
+    --black: #000;
+    --red: red;
+    --green: green;
+
+
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    font-family: system-ui;
+    background-color: var(--background-color2);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    min-width: 300px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: var(--background-color2);
+    border: 1px solid --border-color;
+    border-radius: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Input */
+.firstname,
+.lastname,
+.email,
+.password,
+.message {
+    width: 80%;
+    min-width: 2%;
+    height: 30px;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    align-items: center;
+
+}
+
+/* Message */
+.message {
+    height: 100px;
+}
+
+/* Button */
+.btn {
+    color: var(--white);
+    border-radius: 5px;
+    border: #001126 solid 2px;
+    background-color: #009ee7;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 80%;
+    min-width: 2%;
+    align-items: center;
+    text-shadow: 1px 1px #001d5b;
+}
+
+.btn:hover {
+    background-color: #71aaff;
+    border: #505050 solid 2px;
+    color: var(--white);
+    transition: all 0.7s linear;
+    box-shadow: inset 0px 35px 5px #0070a4;
+    cursor: pointer;
+}
+
+/* Errors */
+
+.error-control {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    width: 80%;
+    min-width: 2%;
+    height: auto;
+    font-size: 13px;
+    text-align: justify;
+}
+
+.error-span {
+    color: var(--error-color);
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    text-shadow: 1px 1px 1px var(--black);
+}
+
+.valid-span {
+    color: var(--green);
+    margin-left: 0px;
+    font-size: 16px;
+    transition: all 0.5s linear;
+    text-shadow: 1px 1px 1px var(--black);
+}
+
+#counter {
+    font-size: 13px;
+    color: var(--info-counter);
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    text-align: center;
+    text-shadow: 1px 1px 1px var(--black);
+}
