@@ -245,14 +245,3 @@ form.addEventListener('submit', (event) => {
     });
     console.log(formData)
 });
-
-const input = document.getElementById('message');
-
-input.addEventListener('input', function () {
-    const lineHeight = parseInt(window.getComputedStyle(input).lineHeight, 10);
-    const inputHeight = input.scrollHeight;
-
-    if (inputHeight > lineHeight) {
-        input.value += '\n';
-    }
-});
