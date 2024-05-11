@@ -15,7 +15,6 @@ inputs.forEach((input, index) => {
         /**
           * Validacion de correo electronico 
           **/
-
         // Si el input es de tipo 'email' comprobamos que sea una dirección de correo electrónico
         if (input.type === 'email') {
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
