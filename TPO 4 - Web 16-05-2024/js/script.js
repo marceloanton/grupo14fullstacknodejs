@@ -41,8 +41,8 @@ inputs.forEach((input, index) => {
         // Si el input es de tipo 'password'
         else if (input.type === 'password') {
             // Definimos la longitud minima y maxima
-            const minLength = 8;
-            const maxLength = 16;
+            const minLength = 80;
+            const maxLength = 160;
             // Obtenemos la longitud de la contraseña
             const passwordLength = value.length;
             // Almacenamos todos los errores, para luego mostrarlos con los condicionales
