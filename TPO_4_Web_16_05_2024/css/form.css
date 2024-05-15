@@ -13,6 +13,7 @@
 
 }
 
+/* 
 html,
 body {
     width: 100%;
@@ -24,7 +25,7 @@ body {
     flex-wrap: wrap;
     font-family: system-ui;
     background-color: var(--background-color2);
-}
+} */
 
 .container {
     display: flex;
