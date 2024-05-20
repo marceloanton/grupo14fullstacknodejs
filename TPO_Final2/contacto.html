@@ -1,0 +1,63 @@
+<!-- ADAPTAR FORM CONTACTO -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empresa de Viajes</title>
+    <!-- Vincula el archivo CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Favicon -->
+    <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <!-- Fuente de Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Encabezado con navegación -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Inicio</a></li>
+                <li><a href="#destinos">Destinos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- Sección de contacto -->
+    <section id="contacto">
+        <h2>Contacto</h2>
+        <form>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" id="telefono" name="telefono" required>
+
+            <label for="mensaje">Mensaje:</label>
+            <input id="mensaje" name="mensaje" required></input>
+
+            <label for="preferencia">Preferencia de contacto:</label>
+            <select id="preferencia" name="preferencia" required>
+                <option value="">Selecciona una opción</option>
+                <option value="email">Email</option>
+                <option value="telefono">Teléfono</option>
+            </select>
+
+            <label><input type="checkbox" name="newsletter" id="newsletter"> Deseo recibir el boletín informativo</label>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2024 Empresa de Viajes. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
