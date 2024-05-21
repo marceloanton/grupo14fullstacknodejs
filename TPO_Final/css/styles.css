@@ -1,14 +1,39 @@
+:root {
+    --background-color: #272727;
+    --background-color2: #dddddd;
+    --background-color-white: #e0f7fa;
+    --background-color-green: #00796b;
+    --background-color-green-hover: #004d40;
+    --background-color-footer: #333;
+    --border-color: #747474;
+
+    --info-counter: #6fe600;
+    --error-color: rgb(209, 0, 0);
+
+    --border-color-green: #00796b;
+    --border-b-footer: #444;
+
+    --white: white;
+    --white2: #fff;
+    --black: #000;
+    --red: red;
+    --green: #00796b;
+    --lightGray: #ccc;
+    --gray: #555;
+
+}
+
 /* Estilos generales del cuerpo */
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #e0f7fa;
+    background-color: var(--background-color-white);
     margin: 0;
     padding: 0;
 }
 
 /* Estilos para el encabezado */
 header {
-    background-color: #00796b;
+    background-color: var(--background-color-green);
     padding: 1em 0;
 }
 
@@ -26,7 +51,7 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: white;
+    color: var(--white);
     font-weight: bold;
 }
 
@@ -56,7 +81,7 @@ section {
 /* Estilos para cada destino individual */
 .destino {
     flex: 1 1 22%;
-    background-color: #fff;
+    background-color: var(--white);
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -82,7 +107,7 @@ section {
 /* Estilos para los párrafos de los destinos */
 .destino p {
     margin: 0.5em 1em;
-    color: #555;
+    color: var(--gray);
 }
 
 /* Estilos para el formulario de contacto */
@@ -90,7 +115,7 @@ form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #fff;
+    background-color: var(--white2);
     padding: 2em;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -104,39 +129,126 @@ form label {
     color: #333;
 }
 
-form input, form select, form textarea, form button {
+form input,
+form select,
+form textarea,
+form button {
     width: 100%;
     margin-bottom: 1em;
     padding: 0.5em;
-    border: 1px solid #ccc;
+    border: 1px solid var(--lightGray);
     border-radius: 4px;
 }
 
-form input:focus, form select:focus, form textarea:focus {
-    border-color: #00796b;
+form input:focus,
+form textarea:focus,
+form select:focus {
+    border-color: var(--border-color-green);
     outline: none;
 }
 
-form button {
-    background-color: #00796b;
-    color: white;
-    border: none;
-    padding: 1em;
-    cursor: pointer;
-    transition: background-color 0.3s;
+.btn {
+    display: flex;
+    background-color: var(--background-color-green);
+    justify-content: center;
+    color: var(--white2);
 }
 
-form button:hover {
-    background-color: #004d40;
+.btn:hover {
+    background-color: var(--background-color-green-hover);
+    background-image: linear-gradient(to bottom, var(--background-color-green-hover), var(--background-color-green));
+    font-weight: 700;
 }
 
 /* Estilos para el pie de página */
 footer {
-    background-color: #00796b;
-    color: white;
+    background-color: var(--background-color-green);
+    color: var(--white);
     text-align: center;
     padding: 1em 0;
 }
+
+/* Errors */
+.error-control {
+    display: flex;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    width: 80%;
+    min-width: 2%;
+    height: auto;
+    font-size: 11px;
+    text-align: justify;
+}
+
+.error-span {
+    color: var(--error-color);
+    text-shadow: 0px 0px 1px var(--gray);
+}
+
+.valid-span {
+    color: var(--green);
+    font-size: 16px;
+    transition: all 0.5s linear;
+    text-shadow: 0px 0px 1px var(--gray);
+}
+
+#counter {
+    font-size: 13px;
+    color: var(--info-counter);
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    text-align: center;
+    text-shadow: 0px 0px 1px var(--gray);
+}
+
+/* Modal - Popup*/
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: var(--white2);
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid var(--border-b-footer);
+    width: 500px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.modal-body {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+
+}
+
+.close {
+    color: var(--background-color-green);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: var(--border-color-green);
+    text-decoration: none;
+    cursor: pointer;
+}
+
 
 /* Media queries para dispositivos de diferentes tamaños */
 @media (max-width: 1024px) {
@@ -168,10 +280,11 @@ footer {
         width: 95%;
     }
 }
+
 /* Estilos para el pie de página */
 footer {
-    background-color: #333;
-    color: white;
+    background-color: var(--background-color-footer);
+    color: var(--white);
 
     display: flex;
     justify-content: space-between;
@@ -196,16 +309,16 @@ footer {
 .social-media {
     display: flex;
     gap: 1em;
-   
+
 }
 
 .social-media a {
-    color: white;
+    color: var(--white);
     font-size: 1.5em;
 }
 
 .about-us {
-    text-align:right;
+    text-align: right;
 
 }
 
@@ -226,5 +339,5 @@ footer {
     text-align: center;
     margin-top: 1em;
     padding-top: 1em;
-    border-top: 1px solid #444;
+    border-top: 1px solid var(--border-b-footer);
 }

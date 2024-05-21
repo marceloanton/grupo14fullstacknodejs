@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Empresa de Viajes</title>
     <!-- Vincula el archivo CSS -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./css/styles.css">
     <!-- Favicon -->
     <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <!-- Fuente de Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Scripts -->
+    <script src="./../js/script.js" defer></script>
 
 </head>
+
 <body>
     <!-- Encabezado con navegación -->
     <header>
@@ -21,7 +25,7 @@
             <ul>
                 <li><a href="#home">Inicio</a></li>
                 <li><a href="#destinos">Destinos</a></li>
-                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="./pages/contacto.html">Contacto</a></li>
             </ul>
         </nav>
     </header>
@@ -32,17 +36,20 @@
         <div class="destinos-grid">
             <!-- Cada destino individual -->
             <div class="destino">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/9/97/Foz_de_Igua%C3%A7u_27_Panorama_Nov_2005.jpg" alt="Cataratas del Iguazú">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/97/Foz_de_Igua%C3%A7u_27_Panorama_Nov_2005.jpg"
+                    alt="Cataratas del Iguazú">
                 <h3>Cataratas del Iguazú</h3>
                 <p>Descubre la majestuosidad de las Cataratas del Iguazú.</p>
             </div>
             <div class="destino">
-                <img src="https://media.tacdn.com/media/attractions-splice-spp-674x446/12/3f/b7/c1.jpg" alt="Perito Moreno">
+                <img src="https://media.tacdn.com/media/attractions-splice-spp-674x446/12/3f/b7/c1.jpg"
+                    alt="Perito Moreno">
                 <h3>Perito Moreno</h3>
                 <p>Explora el impresionante glaciar Perito Moreno.</p>
             </div>
             <div class="destino">
-                <img src="https://humanidades.com/wp-content/uploads/2019/02/Buenos-aires-2-e1585704113704-800x416.jpg" alt="Buenos Aires">
+                <img src="https://humanidades.com/wp-content/uploads/2019/02/Buenos-aires-2-e1585704113704-800x416.jpg"
+                    alt="Buenos Aires">
                 <h3>Buenos Aires</h3>
                 <p>Visita la vibrante ciudad de Buenos Aires.</p>
             </div>
@@ -54,34 +61,6 @@
         </div>
     </section>
 
-    <!-- Sección de contacto -->
-    <section id="contacto">
-        <h2>Contacto</h2>
-        <form>
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required>
-
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="telefono">Teléfono:</label>
-            <input type="tel" id="telefono" name="telefono" required>
-
-            <label for="mensaje">Mensaje:</label>
-            <textarea id="mensaje" name="mensaje" required></textarea>
-
-            <label for="preferencia">Preferencia de contacto:</label>
-            <select id="preferencia" name="preferencia" required>
-                <option value="">Selecciona una opción</option>
-                <option value="email">Email</option>
-                <option value="telefono">Teléfono</option>
-            </select>
-
-            <label><input type="checkbox" name="newsletter" id="newsletter"> Deseo recibir el boletín informativo</label>
-
-            <button type="submit">Enviar</button>
-        </form>
-    </section>
 
     <!-- Pie de página -->
     <footer>
@@ -90,10 +69,10 @@
                 <h3>Nosotros</h3>
                 <p>Grupo #14 </p>
                 <ul>
-                    <li>Marcelo Rúben Antón</li>
+                    <li>Marcelo Ruben Anton</li>
                     <li>Ignacio Moyano</li>
                     <li>Noelia Lefipan</li>
-                    <li>Jonathan Baldovino</li>
+                    <!-- <li>Jonathan Baldovino</li> No sabemos donde anda! -->
                     <li>Adan Cuenca</li>
                 </ul>
             </div>
@@ -115,14 +94,12 @@
                         <i class="fab fa-linkedin-in"></i>
                     </a>
                 </div>
-               
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2024 Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
-    <script src="script.js"></script>
 </body>
-</html>
 
+</html>
