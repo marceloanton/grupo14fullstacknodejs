@@ -7,6 +7,7 @@
     <title>Empresa de Viajes</title>
     <!-- Vincula el archivo CSS -->
     <link rel="stylesheet" href="./css/styles.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- Favicon -->
     <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <!-- Fuente de Google Fonts -->
@@ -15,7 +16,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <!-- Scripts -->
     <script src="./../js/script.js" defer></script>
-
 </head>
 
 <body>
@@ -59,8 +59,34 @@
                 <p>Conoce la histórica provincia de Tucumán.</p>
             </div>
         </div>
+        <br>
+        <br>
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/3wF-K7HhSfI" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="carousel-item">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/5s0xoNSlQp0" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="carousel-item">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/7a7yrRzt6YU" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="carousel-item">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/J4zpa-rk6Q4" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev" style="background-color: transparent; border-radius: 50%; font-size: 3rem; padding: 1rem 1.5rem;">
+                <span class="carousel-control-prev-icon" aria-hidden="true" style="background-color: #014b12;"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next" style="background-color: transparent; border-radius: 50%; font-size: 3rem; padding: 1rem 1.5rem;">
+                <span class="carousel-control-next-icon" aria-hidden="true" style="background-color: #014b12;"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
     </section>
-
 
     <!-- Pie de página -->
     <footer>
@@ -100,6 +126,9 @@
             </div>
         </div>
     </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
 </html>
