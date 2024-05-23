@@ -1,7 +1,7 @@
 
 // Obtenemos el formulario y los elementos input
 const form = document.getElementById('form');
-const inputs = document.querySelectorAll('input');
+const inputs = document.querySelectorAll('input, textarea');
 const errorSpans = document.querySelectorAll('.error-span');
 
 // Recorremos cada input y sus respectivos errores
@@ -146,7 +146,7 @@ inputs.forEach((input, index) => {
         /**
           * Validacion del mensaje
           */
-        else if (input.type === 'text') {
+        else if (input.tagName.toLocaleLowerCase() === 'textarea') {
             // Con letterCount contamos el número de palabras
             const letterCount = value.split(' ').length;
             // Con maxLength obtenemos el valor maximo de caracteres
