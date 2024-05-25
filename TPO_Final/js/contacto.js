@@ -21,15 +21,15 @@ inputs.forEach((input, index) => {
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             // Si el valor no es una dirección de correo electrónico, mostramos un mensaje de error
             if (!emailRegex.test(value)) {
-                errorSpan.textContent = 'Correo Electrónico Invalido.';
+                errorSpan.innerHTML = '<span>❌ Email invalido</span>';
                 errorSpan.classList.add('error-span');
                 errorSpan.classList.remove('valid-span');
             } else {
                 // Si el valor es una dirección de correo electrónico, ocultamos el mensaje de error
-                errorSpan.textContent = '';
+                errorSpan.innerHTML = '<span></span>';
                 errorSpan.classList.add('valid-span');
                 errorSpan.classList.remove('error-span');
-                errorSpan.textContent = '✔';
+                errorSpan.innerHTML = '<span>✔ Email Valido</span>';
             }
 
             /**
@@ -57,29 +57,25 @@ inputs.forEach((input, index) => {
                  * Agregamos las validaciones, si la condicion se cumple, se agrega el mensaje de error, 
                  * de lo contrario no se agrega y se mueve a la sgte validacion 
                  * */
-                { condition: passwordLength <= minLength || passwordLength >= maxLength, message: `➡  La contraseña debe tener entre ${minLength} y ${maxLength} caracteres` },
-                { condition: !containsLetter(value), message: '➡ La contraseña debe contener al menos una letra' },
-                { condition: !containsSpecialChar(value), message: '➡ La contraseña debe contener al menos un carácter especial (!@#$%^&*)' },
-                { condition: !containsNumber(value), message: '➡ La contraseña debe contener al menos un número' }
+                { condition: passwordLength <= minLength || passwordLength >= maxLength, message: `❌  La contraseña debe tener entre ${minLength} y ${maxLength} caracteres` },
+                { condition: !containsLetter(value), message: '❌ La contraseña debe contener al menos una letra' },
+                { condition: !containsSpecialChar(value), message: '❌ La contraseña debe contener al menos un carácter especial (!@#$%^&*)' },
+                { condition: !containsNumber(value), message: '❌ La contraseña debe contener al menos un número' }
             ];
 
-            // Recorremos cada validacion
-            validations.forEach(validations => {
-                // Si la condicion se cumple, se agrega el mensaje de error
-                if (validations.condition) {
-                    errors.push(validations.message);
-                    isValid = false;
-                }
-            });
+            // Almacenar mensajes de error en un array
+            const errorMessages = validations
+                .filter(validation => validation.condition) // Filtrar solo las validaciones que no se cumplen
+                .map(validation => `<p>${validation.message}</p>`); // Convertir cada mensaje en un párrafo HTML
 
-            if (isValid) {
-                errorSpan.textContent = '';
+            if (errorMessages.length === 0) {
+                // Si no hay errores, mostrar mensaje de validación
+                errorSpan.innerHTML = '<span>✔ Contraseña válida</span>';
                 errorSpan.classList.remove('error-span');
                 errorSpan.classList.add('valid-span');
-                errorSpan.textContent = '✔';
             } else {
-                // Mostrar todos los mensajes de error juntos en un solo string
-                errorSpan.textContent = errors.join(', ');
+                // Si hay errores, mostrar todos los mensajes de error
+                errorSpan.innerHTML = errorMessages.join('');
                 errorSpan.classList.remove('valid-span');
                 errorSpan.classList.add('error-span');
             }
@@ -93,6 +89,8 @@ inputs.forEach((input, index) => {
             function containsNumber(password) {
                 return /\d/.test(password);
             }
+
+
             /**
               *  Fin Validacion de password
               */
@@ -101,18 +99,18 @@ inputs.forEach((input, index) => {
         else if (input.type === 'text' && input.name === 'firstname') {
             const nameRegex = /^[a-zA-Z]{3,}$/;
             if (!nameRegex.test(value)) {
-                errorSpan.textContent = 'El nombre debe contener al menos 3 letras';
+                errorSpan.innerHTML = '<span>❌ El nombre debe contener al menos 3 letras</span>';
                 errorSpan.classList.remove('valid-span');
                 errorSpan.classList.add('error-span');
             } else if (!/^[a-zA-Z\s]*$/.test(value)) {
-                errorSpan.textContent = 'El nombre no puede contener números';
+                errorSpan.innerHTML = '<span>❌ El nombre no puede contener números</span>';
                 errorSpan.classList.remove('valid-span');
                 errorSpan.classList.add('error-span');
             } else {
-                errorSpan.textContent = '';
+                errorSpan.innerHTML = '<span></span>';
                 errorSpan.classList.add('valid-span');
                 errorSpan.classList.remove('error-span');
-                errorSpan.textContent = '✔';
+                errorSpan.innerHTML = '<span>✔ Nombre Valido</span>';
             }
             /** 
               * Fin de la validacion de nombre 
@@ -124,18 +122,18 @@ inputs.forEach((input, index) => {
         else if (input.type === 'text' && input.name === 'lastname') {
             const nameRegex = /^[a-zA-Z]{3,}$/;
             if (!nameRegex.test(value)) {
-                errorSpan.textContent = 'El nombre debe contener al menos 3 letras';
+                errorSpan.innerHTML = '<span>❌ El nombre debe contener al menos 3 letras</span>';
                 errorSpan.classList.remove('valid-span');
                 errorSpan.classList.add('error-span');
             } else if (!/^[a-zA-Z\s]*$/.test(value)) {
-                errorSpan.textContent = 'El nombre no puede contener números';
+                errorSpan.innerHTML = '<span>❌ El nombre no puede contener números</span>';
                 errorSpan.classList.remove('valid-span');
                 errorSpan.classList.add('error-span');
             } else {
-                errorSpan.textContent = '';
+                errorSpan.innerHTML = '<span></span>';
                 errorSpan.classList.add('valid-span');
                 errorSpan.classList.remove('error-span');
-                errorSpan.textContent = '✔';
+                errorSpan.innerHTML = '<span>✔ Apellido/s Valido</span>';
             }
 
             /**
@@ -153,21 +151,11 @@ inputs.forEach((input, index) => {
             const maxLength = parseInt(input.getAttribute('maxlength'));
             // con remainingLength restamos el valor maximo de caracteres
             const remainingLength = maxLength - value.length;
-            // Ahora si letterCount es mayor que el valor maximo de caracteres
-            if (letterCount > 200) {
-                // Mostramos un mensaje en el span
-                errorSpan.textContent = `Solo puede escribir ${remainingLength} caracteres restantes de ${maxLength} caracteres`;
-            } else {
-                // Si no, ocultamos el mensaje
-                errorSpan.textContent = '';
-                errorSpan.classList.add('valid-span');
-                errorSpan.classList.remove('error-span');
-                errorSpan.textContent = '✔';
-            }
+
             // Actualizamos el contador de caracteres restantes
             const counterSpan = document.querySelector('#counter');
             // Obtenemos el valor actual del contador y actualizamos su contenido
-            counterSpan.textContent = `Caracteres restantes: ${remainingLength} de ${maxLength} caracteres`;
+            counterSpan.innerHTML = `<span>Caracteres restantes: ${remainingLength} de ${maxLength} caracteres</span>`;
         }
 
         /**
@@ -198,11 +186,11 @@ form.addEventListener('submit', function (event) {
     // Muestra los datos en el modal
     const dataContent = dataModal.querySelector('.modal-body');
     dataContent.innerHTML = `
-        <label>${lastname}, ${firstname}</label><br>
-        <label>Correo Electrónico: ${email}</label><br>
-        <label>Mensaje: ${message}</label><br>
-        <label>Preferencia de contacto: ${preference ? 'Email' : 'Teléfono'}</label><br>
-        <label>Desea recibir el boletín informativo: ${newsletter ? 'Sí' : 'No'}</label><br>
+        <label><Strong>${lastname}, ${firstname}</Strong></label><br>
+        <label><Strong>Correo Electrónico:</Strong> ${email}</label><br>
+        <label><Strong>Mensaje:</Strong> ${message}</label><br>
+        <label><Strong>Preferencia de contacto:</Strong> ${preference ? 'Email' : 'Teléfono'}</label><br>
+        <label><Strong>Desea recibir el boletín informativo:</Strong> ${newsletter ? 'Sí' : 'No'}</label><br>
     `;
 
     // Muestra el modal
