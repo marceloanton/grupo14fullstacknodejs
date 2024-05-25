@@ -128,11 +128,11 @@ nav ul li a {
     display: flex;
     justify-content: center;
     margin: 0;
+    padding: 0;
     flex-grow: 1;
     transition: max-height 0.5s ease;
     max-height: 100px;
     overflow: hidden;
-    opacity: 1;
 }
 
 .menu li {
@@ -497,43 +497,27 @@ footer {
         width: 90%;
     }
 
-    .btn-menu {
-        display: block;
-        background-color: transparent;
-        border: none;
-        color: var(--white);
-        font-size: 1.5em;
-        margin-right: 1em;
-        cursor: pointer;
-    }
-
-    .btn-menu:hover {
-        color: var(--background-color-green);
-    }
-
-    .btn-menu:hover {
-        background-color: var(--background-color-green-hover);
-        color: var(--white);
-    }
-
     .menu {
-        height: 0;
-        flex-direction: row;
-        align-items: center;
-        overflow: hidden;
-        transition: height 0.5s ease;
+        flex-direction: column;
+        max-height: 0;
+        /* Oculta el menú por defecto */
+        opacity: 0;
     }
 
     .menu.show {
-        max-height: 100px;
+        max-height: 300px;
+        /* Altura suficiente para mostrar los elementos del menú */
+        opacity: 1;
     }
 
-    .menu li {
-        margin: 10px 0;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 32px;
+    .btn-menu {
+        display: block;
+        /* Muestra el botón en pantallas pequeñas */
+        background: none;
+        border: none;
+        color: var(--white);
+        font-size: 1.5em;
+        cursor: pointer;
     }
 }
 
@@ -542,29 +526,26 @@ footer {
         width: 95%;
     }
 
-    .btn-menu {
-        display: block;
-        background-color: transparent;
-        border: none;
-        color: var(--white);
-        font-size: 1.5em;
-        margin-right: 1em;
-        cursor: pointer;
-    }
-
-    .btn-menu:hover {
-        color: var(--background-color-green);
-    }
-
     .menu {
+        flex-direction: column;
         max-height: 0;
         /* Oculta el menú por defecto */
-        flex-direction: column;
-        align-items: center;
+        opacity: 0;
     }
 
     .menu.show {
-        /* Ajusta la altura máxima cuando el menú está visible */
         max-height: 300px;
+        /* Altura suficiente para mostrar los elementos del menú */
+        opacity: 1;
+    }
+
+    .btn-menu {
+        display: block;
+        /* Muestra el botón en pantallas pequeñas */
+        background: none;
+        border: none;
+        color: var(--white);
+        font-size: 1.5em;
+        cursor: pointer;
     }
 }
