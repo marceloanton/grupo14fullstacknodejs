@@ -241,3 +241,4 @@ function clearContact() {
     document.getElementById('preference').value = '';
     document.getElementById('newsletter').checked = false;
 }
+
