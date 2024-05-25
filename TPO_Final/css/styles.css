@@ -21,6 +21,9 @@
     --lightGray: #ccc;
     --gray: #555;
 
+    /* Animacion Subrayado del menu */
+    --highlight-color: var(--white);
+    --underline-thickness: 6px;
 }
 
 /* Estilos generales del cuerpo */
@@ -130,9 +133,10 @@ nav ul li a {
     margin: 0;
     padding: 0;
     flex-grow: 1;
-    transition: max-height 0.5s ease;
     max-height: 100px;
     overflow: hidden;
+    font-weight: bold;
+    font-size: 20px;
 }
 
 .menu li {
@@ -146,9 +150,23 @@ nav ul li a {
     position: relative;
 }
 
+.menu li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: var(--underline-thickness);
+    bottom: -3px;
+    left: 0;
+    background-color: var(--highlight-color);
+    transition: width 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.menu li a:hover::after {
+    width: 100%;
+}
+
 .btn-menu {
     display: none;
-    /* Oculta el botón por defecto */
 }
 
 /* Estilos generales para las secciones */
@@ -186,6 +204,7 @@ section {
 
 .destino:hover {
     transform: translateY(-5px);
+    transform: scale(1.05);
 }
 
 /* Estilos para las imágenes de los destinos */
@@ -444,6 +463,13 @@ footer {
     min-width: 100%;
     transition: transform 0.5s ease;
     display: none;
+    flex: 0 0 auto;
+    width: 100%;
+    transition: transform 0.5s ease;
+}
+
+.carousel-item:hover {
+    transform: scale(1.05);
 }
 
 .carousel-item.active {
@@ -498,21 +524,19 @@ footer {
     }
 
     .menu {
-        flex-direction: column;
+        flex-direction: row;
         max-height: 0;
-        /* Oculta el menú por defecto */
         opacity: 0;
+        font-weight: 800;
     }
 
     .menu.show {
         max-height: 300px;
-        /* Altura suficiente para mostrar los elementos del menú */
         opacity: 1;
     }
 
     .btn-menu {
         display: block;
-        /* Muestra el botón en pantallas pequeñas */
         background: none;
         border: none;
         color: var(--white);
@@ -529,19 +553,17 @@ footer {
     .menu {
         flex-direction: column;
         max-height: 0;
-        /* Oculta el menú por defecto */
         opacity: 0;
+        font-weight: 500;
     }
 
     .menu.show {
         max-height: 300px;
-        /* Altura suficiente para mostrar los elementos del menú */
         opacity: 1;
     }
 
     .btn-menu {
         display: block;
-        /* Muestra el botón en pantallas pequeñas */
         background: none;
         border: none;
         color: var(--white);
