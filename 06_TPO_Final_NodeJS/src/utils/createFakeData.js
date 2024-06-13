@@ -1,36 +1,18 @@
 /**  * Genera 100 usuarios con datos falsos con el paquete Faker de NodeJS
  *  Autor: Marcelo Ruben Anton
+ *  Asegurarse de tener el paquete Faker instalado y Mysql2 instalado
+ *  npm install faker@5.5.3 && npm install mysql2
  * */
 const mysql = require('mysql2');
 const faker = require('faker');
-/* 
-const readline = require('readline');
- */
-// Interfaz de lectura de consola
-/* function cantidadUsuarios() {
-    return new Promise((resolve) => {
-        const rl = readline.createInterface({
-            input: process.stdin,
-            output: process.stdout
-        });
 
-        // Preguntamos al usuario cuantos usuarios desea generar
-        rl.question('¿Cuantos usuarios desea generar? ', (cantUsuarios) => {
-            // Cerramos la interfaz de lectura de consola
-            console.log(`
-    Se van a generar: ${cantUsuarios} usuarios
-    `);
-            rl.close();
-        });
-    });
-} */
 
 // Configuración de la conexión a la base de datos
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: 'password',
-    database: 'db_tpo_nodejs'
+    database: 'database'
 });
 
 // Genera 100 usuarios con datos falsos

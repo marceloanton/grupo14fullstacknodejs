@@ -1,25 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=fallback');
-
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-
-/* Additional styles */
-@import 'additional-styles/utility-patterns.css';
-@import 'additional-styles/flatpickr.css';
-
-@import 'tailwindcss/utilities';
-
-body {
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-size: 1rem;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-.container {
+body {
     height: 100dvh;
-    display: flex;
-    flex-direction: column;
-}
-
-.content {
-    flex-grow: 1;
 }
