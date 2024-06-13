@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tabla de usuarios Grupo 14</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css" />
+
+<body>
+    <div class="container">
+        <!-- Navbar -->
+        <nav class="bg-gray-200">
+            <div class="flex items-center justify-between px-4 py-2">
+                <div class="flex items-center">
+                    <img src="https://th.bing.com/th/id/OIP.4dcJ_AHTJ81dikKbJ_xBtgHaGw?rs=1&pid=ImgDetMain" alt="Logo"
+                        class="h-8 mr-4">
+                    <ul class="flex items-center">
+                        <li><a href="#" class="block py-2 px-4 text-gray-800 hover:text-gray-600">Inicio</a></li>
+                        <li><a href="#" class="block py-2 px-4 text-gray-800 hover:text-gray-600">Usuarios</a></li>
+                        <li><a href="#" class="block py-2 px-4 text-gray-800 hover:text-gray-600">Productos</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Tabla de usuarios -->
+        <div class="content">
+            <input type="text" id="searchInput" placeholder="Buscar usuarios...">
+            <table id="userTable" class="table-auto min-w-full divide-y divide-gray-200">
+                <thead class="bg-gray-50">
+                    <tr>
+                        <th class="px-6 py-3 text-xs font-medium tracking-wider text-center text-gray-500 uppercase">
+                            Nombre</th>
+                        <th class="px-6 py-3 text-xs font-medium tracking-wider text-center text-gray-500 uppercase">
+                            Apellido</th>
+                        <th class="px-6 py-3 text-xs font-medium tracking-wider text-center text-gray-500 uppercase">DNI
+                        </th>
+                        <th class="px-6 py-3 text-xs font-medium tracking-wider text-center text-gray-500 uppercase">
+                            Email
+                        </th>
+                        <th class="px-6 py-3 text-xs font-medium tracking-wider text-center text-gray-500 uppercase">
+                            Teléfono</th>
+                        <!--                         <th class="px-6 py-3 text-xs font-medium tracking-wider text-center text-gray-500 uppercase">
+                            Celular</th>
+                        <th class="px-6 py-3 text-xs font-medium tracking-wider text-center text-gray-500 uppercase">
+                            Redes
+                            Sociales</th>
+                        <th class="px-6 py-3 text-xs font-medium tracking-wider text-center text-gray-500 uppercase">
+                            Dirección</th>
+                        <th class="px-6 py-3 text-xs font-medium tracking-wider text-center text-gray-500 uppercase">
+                            Ciudad</th>
+                        <th class="px-6 py-3 text-xs font-medium tracking-wider text-center text-gray-500 uppercase">
+                            Provincia</th>
+                        <th class="px-6 py-3 text-xs font-medium tracking-wider text-center text-gray-500 uppercase">
+                            País
+                        </th> -->
+                        <th class="px-6 py-3 text-xs font-medium tracking-wider text-center text-gray-500 uppercase">
+                            Avatar</th>
+                        <th class="px-6 py-3 text-xs font-medium tracking-wider text-center text-gray-500 uppercase">
+                            Fecha
+                            de Actualización</th>
+                        <th class="px-6 py-3 text-xs font-medium tracking-wider text-center text-gray-500 uppercase">
+                            Tipo
+                            de Usuario</th>
+
+                    </tr>
+                </thead>
+                <tbody id="userRows" class="bg-white divide-y divide-gray-200">
+                    <!-- Aquí se mostrarán las filas de la tabla -->
+                </tbody>
+            </table>
+            <button id="loadUsersBtn" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4"
+                onclick="loadUsers()">Cargar usuarios</button>
+            <div class="flex justify-center mt-4">
+                <button id="antBtn"
+                    class="bg-blue-500 hover:bg-blue-700 text-white text-xs font-bold py-2 px-4 rounded-l">Anterior</button>
+                <span id="numeroPagina" class="px-4 py-2"></span>
+                <button id="sigBtn"
+                    class="bg-blue-500 hover:bg-blue-700 text-white text-xs font-bold py-2 px-4 rounded-r">Siguiente</button>
+            </div>
+        </div>
+        <!-- Footer -->
+        <footer class="bg-gray-200 p-4">
+            <div class="flex items-center justify-between">
+                <div class="text-center">
+                    <a href="#" class="mr-4"><img src="logo-facebook.png" alt="Facebook" class="h-6"></a>
+                    <a href="#"><img src="logo-twitter.png" alt="Twitter" class="h-6"></a>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="./js/app.js"></script>
+    <script src="./js/api.js"></script>
+    <script src="./js/buscar.js"></script>
+</body>
