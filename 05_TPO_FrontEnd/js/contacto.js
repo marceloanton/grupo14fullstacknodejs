@@ -60,7 +60,10 @@ inputs.forEach((input, index) => {
                 { condition: passwordLength <= minLength || passwordLength >= maxLength, message: `❌  La contraseña debe tener entre ${minLength} y ${maxLength} caracteres` },
                 { condition: !containsLetter(value), message: '❌ La contraseña debe contener al menos una letra' },
                 { condition: !containsSpecialChar(value), message: '❌ La contraseña debe contener al menos un carácter especial (!@#$%^&*)' },
-                { condition: !containsNumber(value), message: '❌ La contraseña debe contener al menos un número' }
+                { condition: !containsNumber(value), message: '❌ La contraseña debe contener al menos un número' },
+                { condition: !containsMayus(value), message: '❌ La contraseña debe contener al menos una mayúscula' },
+                { condition: !containsLower(value), message: '❌ La contraseña debe contener al menos una minúscula', }
+
             ];
 
             // Almacenar mensajes de error en un array
@@ -88,6 +91,12 @@ inputs.forEach((input, index) => {
             }
             function containsNumber(password) {
                 return /\d/.test(password);
+            }
+            function containsMayus(password) {
+                return /[A-Z]/.test(password);
+            }
+            function containsLower(password) {
+                return /[a-z]/.test(password);
             }
 
 
@@ -188,7 +197,7 @@ form.addEventListener('submit', function (event) {
     dataContent.innerHTML = `
         <label><Strong>${lastname}, ${firstname}</Strong></label><br>
         <label><Strong>Correo Electrónico:</Strong> ${email}</label><br>
-        <label><Strong>Mensaje:</Strong> ${message}</label><br>
+        <label class="message-modal"><Strong>Mensaje:</Strong> ${message}</label><br>
         <label><Strong>Preferencia de contacto:</Strong> ${preference ? 'Email' : 'Teléfono'}</label><br>
         <label><Strong>Desea recibir el boletín informativo:</Strong> ${newsletter ? 'Sí' : 'No'}</label><br>
     `;

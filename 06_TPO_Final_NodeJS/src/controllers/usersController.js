@@ -70,9 +70,7 @@ const crearUsuario = (req, res) => {
       if (err) {
         throw err;
       }
-      res
-        .status(201)
-        .json({ message: "Usuario creado correctamente", id: result.insertId });
+      res.status(201).json({ message: "Usuario creado correctamente", id: result.insertId });
     }
   );
 };
@@ -153,3 +151,4 @@ module.exports = {
   actualizarUsuarioPorID,
   eliminarUsuarioPorID
 };
+

@@ -1,10 +1,12 @@
 require('dotenv').config();
+
 const express = require('express');
 const app = express();
-const apiRouter = express.Router();
-const usersController = require('./src/controllers/usersController');
 const { propertiesText } = require('./src/utils/consoleFormat');
 const path = require('path');
+
+// Archivo de configuración de las rutas desde config/routesConfig.js
+const configuracionRutas = require('./src/routes/routesConfig');
 
 // Formato para imprimir un mensaje de log con color
 const bold = propertiesText.bold;
@@ -17,15 +19,7 @@ const reset = propertiesText.reset;
 // Configuramos el puerto desde el archivo .env o utilizamos el primer puerto disponible que nos de el OS
 const port = process.env.API_PORT || buscarPuertoDisponible();
 
-// Configuramos la ruta base de la API
-app.use('/api', apiRouter);
-
-// Configuramos las rutas de usuarios para la API
-apiRouter.get('/users', usersController.obtenerTodosLosUsuarios);
-apiRouter.get('/users/:id', usersController.buscarUsuarioPorID);
-apiRouter.post('/users', usersController.crearUsuario);
-apiRouter.put('/users/:id', usersController.actualizarUsuarioPorID);
-apiRouter.delete('/users/:id', usersController.eliminarUsuarioPorID);
+configuracionRutas(app);
 
 // Configuramos la carpeta 'public' para los archivos estáticos de la aplicación
 app.use(express.static(path.join(__dirname, 'public')));

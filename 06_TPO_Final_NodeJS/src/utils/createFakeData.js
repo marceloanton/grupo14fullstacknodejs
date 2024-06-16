@@ -5,47 +5,66 @@
  * */
 const mysql = require('mysql2');
 const faker = require('faker');
-
+const readline = require('readline');
 
 // Configuración de la conexión a la base de datos
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: 'password',
-    database: 'database'
+    database: 'db_tpo_nodejs'
 });
 
-// Genera 100 usuarios con datos falsos
-const users = Array.from({ length: 100 }, () => ({
-    nombre: faker.name.findName(),
-    apellido: faker.name.lastName(),
-    dni: faker.datatype.number({ min: 10000000, max: 99999999 }).toString(),
-    email: faker.internet.email(),
-    contrasena: faker.internet.password(),
-    numero_telefono: faker.phone.phoneNumber().slice(0, 15),
-    numero_celular: faker.phone.phoneNumber().slice(0, 15),
-    redes_sociales: faker.internet.url(),
-    direccion: faker.address.streetAddress(),
-    ciudad: faker.address.city(),
-    provincia: faker.address.state(),
-    pais: faker.address.country(),
-    imagen: faker.image.avatar(),
-    fecha_registro: new Date().toISOString().slice(0, 19).replace('T', ' '),
-    fecha_actualizacion: faker.date.recent(),
-    tipo_usuario: faker.random.word()
-}));
+// Definimos las opciones para el tipo de usuario
+const tipoUsuarioOpciones = ['Admin', 'SuperUsuario', 'Moderador', 'Editor', 'Usuario', 'Baneado', 'Suspendido', 'Eliminado'];
+const socialMedia = ['Youtube, Facebook, Twitter, LinkedIn, Instagram, TikTok, Snapchat, WhatsApp, Telegram'];
+
+// Creamos el objeto de línea de comandos
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+// Preguntamos al usuario cuántos usuarios quiere generar
+rl.question('¿Cuántos usuarios desea generar? ', (usuarios) => {
+    const numeroUsuarios = parseInt(usuarios);
+
+    // Genera 100 usuarios con datos falsos
+    const users = Array.from({ length: numeroUsuarios }, () => ({
+        nombre: faker.name.findName(),
+        apellido: faker.name.lastName(),
+        dni: faker.datatype.number({ min: 10000000, max: 50000000 }).toString(),
+        email: faker.internet.email(),
+        contrasena: faker.internet.password(),
+        numero_telefono: faker.phone.phoneNumberFormat(),
+        numero_celular: faker.phone.phoneNumberFormat(),
+        redes_sociales: faker.random.arrayElement(socialMedia),
+        direccion: faker.address.streetAddress(),
+        ciudad: faker.address.city(),
+        provincia: faker.address.state(),
+        pais: faker.address.country(),
+        imagen: faker.random.arrayElement([]),
+        fecha_registro: new Date().toISOString().slice(0, 19).replace('T', ' '),
+        fecha_actualizacion: faker.date.recent(),
+        tipo_usuario: faker.random.arrayElement(tipoUsuarioOpciones),
+    }));
 
 
-// Inserta los datos falsos en la tabla de usuarios
-users.forEach((user) => {
-    const query = 'INSERT INTO users (nombre, apellido, dni, email, contrasena, numero_telefono, numero_celular, redes_sociales, direccion, ciudad, provincia, pais, imagen, fecha_registro, fecha_actualizacion, tipo_usuario) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
-    connection.query(query, Object.values(user), (err, result) => {
-        if (err) {
-            throw err;
-        }
-        console.log(`
+    // Inserta los datos falsos en la tabla de usuarios
+    users.forEach((user) => {
+        const query = 'INSERT INTO users (nombre, apellido, dni, email, contrasena, numero_telefono, numero_celular, redes_sociales, direccion, ciudad, provincia, pais, imagen, fecha_registro, fecha_actualizacion, tipo_usuario) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+        connection.query(query, Object.values(user), (err, result) => {
+            if (err) {
+                throw err;
+            }
+            console.log(`
 Usuario insertado correctamente: ${result.insertId} - ${user.nombre} ${user.apellido}`);
-    });
+        });
 
-});
-connection.end();
+    });
+    // Cerramos la conexión a la base de datos
+    connection.end();
+
+    // Cerramos el objeto de línea de comandos
+    rl.close();
+}, 100);

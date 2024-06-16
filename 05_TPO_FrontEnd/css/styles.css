@@ -256,6 +256,14 @@ form button {
     font-family: 'Roboto';
 }
 
+form textarea {
+    word-break: break-all;
+}
+
+.message-modal {
+    word-break: break-all;
+}
+
 form input:focus,
 form textarea:focus,
 form select:focus {
