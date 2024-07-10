@@ -1,16 +1,16 @@
-// Archivo config/routesConfig.js para configurar las rutas de la API
-
 const express = require('express');
-const userRoutes = require('./userRoutes');
+
+const usuarioRoutes = require('./usuarioRoutes');
 const authRoutes = require('./authRoutes');
 
 const configuracionRutas = (app) => {
     const apiRouter = express.Router();
 
-    // Configura las rutas de nuestra API
-    apiRouter.use('/users', userRoutes);
+    // Autenticación
     apiRouter.use('/auth', authRoutes);
 
+    // Usuarios
+    apiRouter.use('/usuarios', usuarioRoutes);
 
     // Configuramos la ruta base para nuestra API
     app.use('/api', apiRouter);

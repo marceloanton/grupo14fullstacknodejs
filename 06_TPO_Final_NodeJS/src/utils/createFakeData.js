@@ -17,7 +17,6 @@ const connection = mysql.createConnection({
 
 // Definimos las opciones para el tipo de usuario
 const tipoUsuarioOpciones = ['Admin', 'SuperUsuario', 'Moderador', 'Editor', 'Usuario', 'Baneado', 'Suspendido', 'Eliminado'];
-const socialMedia = ['Youtube, Facebook, Twitter, LinkedIn, Instagram, TikTok, Snapchat, WhatsApp, Telegram'];
 
 // Creamos el objeto de línea de comandos
 const rl = readline.createInterface({
@@ -25,20 +24,24 @@ const rl = readline.createInterface({
     output: process.stdout
 });
 
+/* rl.question('¿Cual es el nombre de la tabla? ', (tableName) => {
+    const nombreTabla = parseInt(tableName);
+}); */
 // Preguntamos al usuario cuántos usuarios quiere generar
 rl.question('¿Cuántos usuarios desea generar? ', (usuarios) => {
     const numeroUsuarios = parseInt(usuarios);
+
 
     // Genera 100 usuarios con datos falsos
     const users = Array.from({ length: numeroUsuarios }, () => ({
         nombre: faker.name.findName(),
         apellido: faker.name.lastName(),
         dni: faker.datatype.number({ min: 10000000, max: 50000000 }).toString(),
+        nombre_usuario: faker.internet.userName(),
         email: faker.internet.email(),
         contrasena: faker.internet.password(),
-        numero_telefono: faker.phone.phoneNumberFormat(),
-        numero_celular: faker.phone.phoneNumberFormat(),
-        redes_sociales: faker.random.arrayElement(socialMedia),
+        numero_telefono: faker.phone.phoneNumberFormat().slice(0, 13),
+        numero_celular: faker.phone.phoneNumberFormat().slice(0, 13),
         direccion: faker.address.streetAddress(),
         ciudad: faker.address.city(),
         provincia: faker.address.state(),
@@ -52,7 +55,7 @@ rl.question('¿Cuántos usuarios desea generar? ', (usuarios) => {
 
     // Inserta los datos falsos en la tabla de usuarios
     users.forEach((user) => {
-        const query = 'INSERT INTO users (nombre, apellido, dni, email, contrasena, numero_telefono, numero_celular, redes_sociales, direccion, ciudad, provincia, pais, imagen, fecha_registro, fecha_actualizacion, tipo_usuario) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+        const query = 'INSERT INTO usuarios (nombre, apellido, dni, nombre_usuario, email, contrasena, numero_telefono, numero_celular, direccion, ciudad, provincia, pais, imagen, fecha_registro, fecha_actualizacion, tipo_usuario) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
         connection.query(query, Object.values(user), (err, result) => {
             if (err) {
                 throw err;

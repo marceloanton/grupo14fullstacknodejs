@@ -4,18 +4,26 @@
   "description": "Grupo 14 Fullstack NodeJS Codo a Codo",
   "main": "index.js",
   "scripts": {
-    "start": "node --watch index.js"
+    "dev": "node --watch index.js"
   },
   "keywords": [],
-  "author": "Marcelo Anton - Noelia Lepifan - Adan Cuenca - Ignacio Mouano",
+  "author": "Marcelo Anton - Noelia Lepifan - Adan Cuenca - Ignacio Moyano",
   "license": "ISC",
   "dependencies": {
-    "dotenv": "^16.4.5",
-    "express": "^4.19.2",
-    "init": "^0.1.2",
-    "mysql2": "^3.10.0"
+    "bcrypt": "5.1.1",
+    "bcryptjs": "2.4.3",
+    "dotenv": "16.4.5",
+    "express": "4.19.2",
+    "init": "0.1.2",
+    "jsonwebtoken": "9.0.2",
+    "muller": "1.1.0",
+    "mysql2": "3.10.0"
   },
   "devDependencies": {
-    "@faker-js/faker": "^8.4.1"
+    "@faker-js/faker": "8.4.1",
+    "standard": "17.1.0"
+  },
+  "eslintConfig": {
+    "extends": "standart"
   }
 }

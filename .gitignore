@@ -1,2 +1,6 @@
+# Ignora la carpeta node_modules para que no pese tanto el src
 node_modules
-06_TOP_FINAL_NodeJS/.env
+# Ignora los archivos .env, deja el example para comfigurar
+.env
+# Ignora lso archivos .log
+.log
