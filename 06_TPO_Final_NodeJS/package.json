@@ -4,6 +4,7 @@
   "description": "Grupo 14 Fullstack NodeJS Codo a Codo",
   "main": "index.js",
   "scripts": {
+    "type": "module",
     "dev": "node --watch index.js"
   },
   "keywords": [],
